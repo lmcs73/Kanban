@@ -25,6 +25,23 @@ header {
     margin-left: 200px;
     padding: 20px;
 }
+.kanban-board {
+    display: flex;
+    justify-content: space-around;
+}
+
+.kanban-column {
+    flex-grow: 1;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    min-height: 300px;
+}
+
+.kanban-column h2 {
+    text-align: center;
+}
 
 footer {
     background-color: #333;
