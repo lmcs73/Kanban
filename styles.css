@@ -5,17 +5,35 @@ body {
     background-color: #f4f4f4;
 }
 
-header, footer {
-    text-align: center;
-    padding: 10px;
+header {
     background-color: #333;
     color: white;
+    text-align: center;
+    padding: 10px;
 }
 
-.kanban-board {
-    display: flex;
-    justify-content: space-around;
+.sidebar {
+    width: 200px;
+    background-color: #444;
+    height: 100vh;
+    float: left;
+    color: white;
     padding: 20px;
 }
 
-/* Adicione mais estilos para as colunas e cartões do Kanban */
+.kanban-container {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Adicione mais estilos conforme necessário */
