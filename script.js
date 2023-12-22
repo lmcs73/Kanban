@@ -11,6 +11,19 @@ function drop(event) {
     var data = event.dataTransfer.getData("text");
     event.target.appendChild(document.getElementById(data));
 }
+// Adicione estas funções no seu script.js
+
+function updateTaskCounts() {
+    const todoCount = document.querySelectorAll('.kanban-column.todo .task-card').length;
+    const doingCount = document.querySelectorAll('.kanban-column.doing .task-card').length;
+    const doneCount = document.querySelectorAll('.kanban-column.done .task-card').length;
+
+    document.getElementById('todoCount').innerText = 'A Fazer: ' + todoCount;
+    document.getElementById('doingCount').innerText = 'Em Andamento: ' + doingCount;
+    document.getElementById('doneCount').innerText = 'Concluídas: ' + doneCount;
+}
+
+// Chame updateTaskCounts no final da função addTask e drop
 
 let taskIdCounter = 0;
 function addTask() {
