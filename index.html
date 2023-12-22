@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro Kanban da Equipe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="task-creation-form">
+        <input type="text" id="taskName" placeholder="Nome da Tarefa">
+        <select id="userSelection">
+            <option value="">Selecione um Usuário</option>
+            <option value="usuario1">Usuário 1</option>
+            <option value="usuario2">Usuário 2</option>
+            <!-- Adicione mais opções de usuários aqui -->
+        </select>
+        <button onclick="addTask()">Adicionar Tarefa</button>
+    </div>
+    <div class="kanban-board">
+        <div class="kanban-column todo">
+            <div class="column-header">A Fazer</div>
+            <!-- Tarefas a fazer serão inseridas aqui -->
+        </div>
+        <div class="kanban-column doing">
+            <div class="column-header">Em Andamento</div>
+            <!-- Tarefas em andamento serão inseridas aqui -->
+        </div>
+        <div class="kanban-column done">
+            <div class="column-header">Concluído</div>
+            <!-- Tarefas concluídas serão inseridas aqui -->
+        </div>
+        <!-- Colunas adicionais podem ser adicionadas aqui -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
