@@ -25,6 +25,7 @@ header {
     margin-left: 200px;
     padding: 20px;
 }
+
 .kanban-board {
     display: flex;
     justify-content: space-around;
@@ -43,14 +44,15 @@ header {
     text-align: center;
 }
 
-footer {
-    background-color: #333;
-    color: white;
+.task-creation-form {
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
+    margin: 10px;
 }
 
-/* Adicione mais estilos conforme necessário */
+.task-card {
+    background-color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
