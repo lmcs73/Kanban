@@ -12,8 +12,8 @@ header {
     background-color: #333;
     color: white;
     text-align: center;
-    line-height: 25px; /* Centralização vertical */
-    height: 50px;
+    line-height: 50px; /* Centralização vertical */
+    height: 100px;
     width: 100%;
     position: fixed; /* Header fixo */
     top: 0;
@@ -25,14 +25,14 @@ header {
     width: 200px;
     padding: 15px;
     position: fixed;
-    top: 50px;
+    top: 100px;
     bottom: 0; /* Ajuste para não sobrepor o footer */
     overflow-y: auto; /* Scroll vertical se necessário */
 }
 
 .main-content {
     margin-left: 200px;
-    margin-top: 50px; /* Espaço abaixo do header */
+    margin-top: 100px; /* Espaço abaixo do header */
     padding: 20px;
 }
 
