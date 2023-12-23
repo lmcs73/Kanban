@@ -3,56 +3,46 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
 }
 
 header {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+    width: 100%;
 }
 
 .sidebar {
-    width: 200px;
     background-color: #444;
-    height: 100vh;
-    float: left;
+    width: 200px;
+    padding: 15px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
     color: white;
-    padding: 20px;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
 }
 
-.kanban-container {
-    margin-left: 200px;
-    padding: 20px;
-}
-
-.kanban-board {
-    display: flex;
-    justify-content: space-around;
-}
-
-.kanban-column {
+.main-content {
     flex-grow: 1;
-    margin: 0 10px;
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 5px;
-    min-height: 300px;
+    padding: 20px;
 }
 
-.kanban-column h2 {
+footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-}
-
-.task-creation-form {
-    text-align: center;
-    margin: 10px;
-}
-
-.task-card {
-    background-color: #fff;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
 }

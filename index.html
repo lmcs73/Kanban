@@ -3,36 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadro Kanban da Equipe</title>
-    <link rel="stylesheet" href="styles.css"> </head> <body>
+    <title>Gestão de Atividades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <header>
-        <h1>Quadro Kanban</h1>
+        <h1>UCO1.2 - CLIENTES E CONTAS</h1>
     </header>
     <aside class="sidebar">
-        <!-- Navegação -->
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#gantt">Gantt</a></li>
+            <li><a href="#settings">Configurações</a></li>
+        </ul>
     </aside>
-    <div class="task-creation-form">
-        <input type="text" id="taskName" placeholder="Nome da Tarefa">
-        <button onclick="addTask()">Adicionar Tarefa</button>
-    </div>
-    <main class="kanban-container">
-        <section class="kanban-board">
-            <div class="kanban-column todo">
-                <h2>A Fazer</h2>
-                <!-- Tarefas a fazer serão inseridas aqui -->
-            </div>
-            <div class="kanban-column doing">
-                <h2>Em Andamento</h2>
-                <!-- Tarefas em andamento serão inseridas aqui -->
-            </div>
-            <div class="kanban-column done">
-                <h2>Concluído</h2>
-                <!-- Tarefas concluídas serão inseridas aqui -->
-            </div>
-        </section>
+    <main class="main-content">
+        <!-- Conteúdo principal aqui -->
     </main>
     <footer>
-        <p>Desenvolvido pela Equipe</p>
+        <p>Desenvolvido por Luis Sousa</p>
     </footer>
     <script src="script.js"></script>
 </body>
