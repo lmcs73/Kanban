@@ -12,7 +12,7 @@ header {
     background-color: #333;
     color: white;
     text-align: center;
-    line-height: 50px; /* Centralização vertical */
+    line-height: 25px; /* Centralização vertical */
     height: 50px;
     width: 100%;
     position: fixed; /* Header fixo */
