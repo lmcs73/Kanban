@@ -18,7 +18,18 @@
         </ul>
     </aside>
     <main class="main-content">
-        <!-- Conteúdo principal aqui -->
+        <div class="kanban-board" id="kanbanBoard">
+            <!-- Exemplo de coluna -->
+            <div class="kanban-column" id="todo">
+                <div class="column-header">
+                    <span>A Fazer</span>
+                    <button onclick="renameColumn('todo')">Renomear</button>
+                    <button onclick="deleteColumn('todo')">X</button>
+                </div>
+                <!-- Tarefas aqui -->
+            </div>
+            <button class="add-column-btn" onclick="addColumn()">+</button>
+        </div>
     </main>
     <footer>
         <p>Desenvolvido por Luis Sousa</p>

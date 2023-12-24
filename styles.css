@@ -45,3 +45,33 @@ footer {
     width: 100%;
     padding: 5px;
 }
+/* Estilos existentes... */
+.kanban-board {
+    display: flex;
+    padding: 10px;
+    overflow-x: auto; /* Permite scroll horizontal */
+}
+
+.kanban-column {
+    min-width: 200px;
+    margin-right: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.add-column-btn {
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 24px;
+}
