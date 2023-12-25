@@ -3,16 +3,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Lógica após carregamento do documento
 });
+let columnCount = 3; // Inicialmente, temos três colunas
+
 function addColumn() {
-    // Implementar a lógica para adicionar uma nova coluna
+    columnCount++;
+    const newColumn = document.createElement('div');
+    newColumn.className = 'kanban-column';
+    newColumn.id = 'column' + columnCount;
+    newColumn.innerHTML = `
+        <div class="column-header">
+            <span contenteditable="true">Nova Coluna</span>
+            <button onclick="renameColumn('${newColumn.id}')">Renomear</button>
+            <button onclick="deleteColumn('${newColumn.id}')">X</button>
+        </div>
+    `;
+    document.getElementById('kanbanBoard').appendChild(newColumn);
 }
 
 function renameColumn(columnId) {
-    // Implementar a lógica para renomear uma coluna
+    // A lógica de renomeação pode ser ajustada conforme necessário
 }
 
 function deleteColumn(columnId) {
-    // Implementar a lógica para deletar uma coluna
+    if (columnCount > 2) {
+        const column = document.getElementById(columnId);
+        column.parentNode.removeChild(column);
+        columnCount--;
+    } else {
+        alert('Deve haver pelo menos duas colunas.');
+    }
 }
 
-// Adicionar lógica para permitir reordenar colunas (arrastar e soltar)
+// Implementar lógica de arrastar e soltar colunas

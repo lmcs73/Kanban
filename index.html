@@ -19,12 +19,27 @@
     </aside>
     <main class="main-content">
         <div class="kanban-board" id="kanbanBoard">
-            <!-- Exemplo de coluna -->
-            <div class="kanban-column" id="todo">
+            <div class="kanban-column" id="column1">
                 <div class="column-header">
-                    <span>A Fazer</span>
-                    <button onclick="renameColumn('todo')">Renomear</button>
-                    <button onclick="deleteColumn('todo')">X</button>
+                    <span contenteditable="true">A Fazer</span>
+                    <button onclick="renameColumn('column1')">Renomear</button>
+                    <button onclick="deleteColumn('column1')">X</button>
+                </div>
+                <!-- Tarefas aqui -->
+            </div>
+            <div class="kanban-column" id="column2">
+                <div class="column-header">
+                    <span contenteditable="true">Em Curso</span>
+                    <button onclick="renameColumn('column2')">Renomear</button>
+                    <button onclick="deleteColumn('column2')">X</button>
+                </div>
+                <!-- Tarefas aqui -->
+            </div>
+            <div class="kanban-column" id="column3">
+                <div class="column-header">
+                    <span contenteditable="true">Concluído</span>
+                    <button onclick="renameColumn('column3')">Renomear</button>
+                    <button onclick="deleteColumn('column3')">X</button>
                 </div>
                 <!-- Tarefas aqui -->
             </div>
