@@ -1,8 +1,3 @@
-// Lógica de navegação
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Lógica após carregamento do documento
-});
 let columnCount = 3; // Inicialmente, temos três colunas
 
 function addColumn() {
@@ -19,6 +14,39 @@ function addColumn() {
     `;
     document.getElementById('kanbanBoard').appendChild(newColumn);
 }
+newColumn.setAttribute('draggable', 'true');
+newColumn.addEventListener('dragstart', handleDragStart);
+
+
+function handleDragStart(e) {
+e.dataTransfer.setData('text/plain', e.target.id);
+}
+
+function handleDragOver(e) {
+e.preventDefault(); // Necessário para permitir soltar
+}
+
+function handleDrop(e) {
+e.preventDefault();
+const id = e.dataTransfer.getData('text/plain');
+const draggableElement = document.getElementById(id);
+const dropzone = e.target.closest('.kanban-column');
+if (dropzone && draggableElement !== dropzone) {
+    dropzone.parentNode.insertBefore(draggableElement, dropzone.nextSibling);
+}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+const columns = document.querySelectorAll('.kanban-column');
+columns.forEach(column => {
+    column.setAttribute('draggable', 'true');
+    column.addEventListener('dragstart', handleDragStart);
+});
+
+const board = document.getElementById('kanbanBoard');
+board.addEventListener('dragover', handleDragOver);
+board.addEventListener('drop', handleDrop);
+});
 
 function renameColumn(columnId) {
     // A lógica de renomeação pode ser ajustada conforme necessário
