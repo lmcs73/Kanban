@@ -64,6 +64,11 @@ header {
     font-size: 1.5rem;
     margin-left: 1rem;
 }
+.kanban-row {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
 
 footer {
     background-color: #4CAF50;
@@ -76,10 +81,4 @@ footer {
 }
 .column-header {
     user-select: none;
-}
-
-.kanban-row {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 5px;
 }
