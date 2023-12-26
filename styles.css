@@ -74,3 +74,12 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.column-header {
+    user-select: none;
+}
+
+.kanban-row {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}

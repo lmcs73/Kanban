@@ -1,19 +1,54 @@
-function renameColumn(columnId) {
-    // This function allows the user to rename a column by clicking the "Renomear" button.
-    // The actual renaming is handled by the contenteditable attribute in the HTML.
+function initDragAndDrop() {
+    let columns = document.querySelectorAll('.kanban-column');
+    columns.forEach(column => {
+        column.draggable = true;
+        column.addEventListener('dragstart', handleDragStart);
+        column.addEventListener('dragover', handleDragOver);
+        column.addEventListener('drop', handleDrop);
+    });
+}
+
+function handleDragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.id);
+}
+
+function handleDragOver(e) {
+    e.preventDefault(); // Necessary to allow dropping
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    let draggedId = e.dataTransfer.getData('text/plain');
+    let droppedOn = e.target;
+    let draggedElement = document.getElementById(draggedId);
+
+    if (droppedOn.className.includes('kanban-column')) {
+        swapColumns(draggedElement, droppedOn);
+    }
+}
+
+function swapColumns(dragged, target) {
+    let kanbanBoard = document.getElementById('kanbanBoard');
+    kanbanBoard.insertBefore(dragged, target.nextSibling);
+    moveAddButtonToEnd();
+}
+
+function moveAddButtonToEnd() {
+    let kanbanBoard = document.getElementById('kanbanBoard');
+    let addButton = document.querySelector('.add-column-btn');
+    kanbanBoard.appendChild(addButton);
 }
 
 function deleteColumn(columnId) {
-    // This function deletes a column after confirmation.
     let column = document.getElementById(columnId);
     let confirmDeletion = confirm("Tem certeza que deseja excluir esta coluna?");
     if (confirmDeletion) {
         column.parentNode.removeChild(column);
+        moveAddButtonToEnd();
     }
 }
 
 function addColumn() {
-    // This function adds a new column to the right of the existing columns.
     let kanbanBoard = document.getElementById('kanbanBoard');
     let newColumnId = `column${kanbanBoard.children.length}`;
     let newColumn = document.createElement('div');
@@ -28,12 +63,22 @@ function addColumn() {
         <!-- Tarefas aqui -->
     `;
     kanbanBoard.appendChild(newColumn);
+    moveAddButtonToEnd();
+    initDragAndDrop();
 }
-
-// Initial setup to ensure there are at least two columns
+function addRow(columnId) {
+    let column = document.getElementById(columnId);
+    let newRow = document.createElement('div');
+    newRow.className = 'kanban-row';
+    newRow.innerHTML = `
+        <span contenteditable="true">Nova Linha</span>
+    `;
+    let addButton = column.querySelector('.add-row-btn');
+    column.insertBefore(newRow, addButton);
+}
 document.addEventListener('DOMContentLoaded', function() {
-    let kanbanBoard = document.getElementById('kanbanBoard');
-    if (kanbanBoard.children.length < 2) {
+    if (document.getElementById('kanbanBoard').children.length < 2) {
         addColumn();
     }
+    initDragAndDrop();
 });

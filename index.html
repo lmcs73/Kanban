@@ -20,6 +20,17 @@
     </aside>
     <main class="main-content">
         <div class="kanban-board" id="kanbanBoard">
+            <div class="kanban-column" id="responsibleColumn">
+                <div class="column-header">
+                    <span contenteditable="true">Responsável</span>
+                    <button onclick="renameColumn('responsibleColumn')">Renomear</button>
+                </div>
+                <div class="kanban-row" id="nameRow">
+                    <span contenteditable="true">Nome</span>
+                </div>
+                <button class="add-row-btn" onclick="addRow('responsibleColumn')">+</button>
+                <!-- Mais linhas aqui -->
+            </div>
             <div class="kanban-column" id="todoColumn">
                 <div class="column-header">
                     <span contenteditable="true">A Fazer</span>
