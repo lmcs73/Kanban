@@ -1,61 +1,39 @@
-let columnCount = 3; // Contador inicial de colunas
-
-function addColumn() {
-    columnCount++;
-    const newColumn = document.createElement('div');
-    newColumn.className = 'kanban-column';
-    newColumn.id = 'column' + columnCount;
-    newColumn.setAttribute('draggable', 'true');
-    newColumn.addEventListener('dragstart', handleDragStart);
-    newColumn.innerHTML = `
-        <div class="column-header">
-            <span contenteditable="true">Nova Coluna</span>
-            <button onclick="renameColumn('${newColumn.id}')">Renomear</button>
-            <button onclick="deleteColumn('${newColumn.id}')">X</button>
-        </div>
-        <!-- Tarefas aqui -->
-    `;
-    document.getElementById('kanbanBoard').appendChild(newColumn);
-}
-
 function renameColumn(columnId) {
-    // Implementar a lógica para renomear uma coluna
+    // This function allows the user to rename a column by clicking the "Renomear" button.
+    // The actual renaming is handled by the contenteditable attribute in the HTML.
 }
 
 function deleteColumn(columnId) {
-    if (columnCount > 2) {
-        const column = document.getElementById(columnId);
+    // This function deletes a column after confirmation.
+    let column = document.getElementById(columnId);
+    let confirmDeletion = confirm("Tem certeza que deseja excluir esta coluna?");
+    if (confirmDeletion) {
         column.parentNode.removeChild(column);
-        columnCount--;
-    } else {
-        alert('Deve haver pelo menos duas colunas.');
     }
 }
 
-function handleDragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.id);
+function addColumn() {
+    // This function adds a new column to the right of the existing columns.
+    let kanbanBoard = document.getElementById('kanbanBoard');
+    let newColumnId = `column${kanbanBoard.children.length}`;
+    let newColumn = document.createElement('div');
+    newColumn.className = 'kanban-column';
+    newColumn.id = newColumnId;
+    newColumn.innerHTML = `
+        <div class="column-header">
+            <span contenteditable="true">Nova Coluna</span>
+            <button onclick="renameColumn('${newColumnId}')">Renomear</button>
+            <button onclick="deleteColumn('${newColumnId}')">X</button>
+        </div>
+        <!-- Tarefas aqui -->
+    `;
+    kanbanBoard.appendChild(newColumn);
 }
 
-function handleDragOver(e) {
-    e.preventDefault(); // Necessário para permitir soltar
-}
-
-function handleDrop(e) {
-    e.preventDefault();
-    const id = e.dataTransfer.getData('text/plain');
-    const draggableElement = document.getElementById(id);
-    const dropzone = e.target.closest('.kanban-column');
-    if (dropzone && draggableElement !== dropzone) {
-        dropzone.parentNode.insertBefore(draggableElement, dropzone.nextSibling);
+// Initial setup to ensure there are at least two columns
+document.addEventListener('DOMContentLoaded', function() {
+    let kanbanBoard = document.getElementById('kanbanBoard');
+    if (kanbanBoard.children.length < 2) {
+        addColumn();
     }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const columns = document.querySelectorAll('.kanban-column');
-    columns.forEach(column => {
-        column.setAttribute('draggable', 'true');
-        column.addEventListener('dragstart', handleDragStart);
-    });
-
-    const board = document.getElementById('kanbanBoard');
-    board.addEventListener('dragover', handleDragOver);
+});

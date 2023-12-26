@@ -3,43 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Atividades</title>
+    <title>Gestão de Tarefas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>UCO1.2 - CLIENTES E CONTAS</h1>
+        <h1>Insira o Título Aqui</h1>
     </header>
     <aside class="sidebar">
         <ul>
             <li><a href="#home">Início</a></li>
+            <li><a href="#kanban">Kanban</a></li>
             <li><a href="#gantt">Gantt</a></li>
             <li><a href="#settings">Configurações</a></li>
         </ul>
     </aside>
     <main class="main-content">
         <div class="kanban-board" id="kanbanBoard">
-            <div class="kanban-column" id="column1">
+            <div class="kanban-column" id="todoColumn">
                 <div class="column-header">
                     <span contenteditable="true">A Fazer</span>
-                    <button onclick="renameColumn('column1')">Renomear</button>
-                    <button onclick="deleteColumn('column1')">X</button>
+                    <button onclick="renameColumn('todoColumn')">Renomear</button>
+                    <button onclick="deleteColumn('todoColumn')">X</button>
                 </div>
                 <!-- Tarefas aqui -->
             </div>
-            <div class="kanban-column" id="column2">
+            <div class="kanban-column" id="doingColumn">
                 <div class="column-header">
                     <span contenteditable="true">Em Curso</span>
-                    <button onclick="renameColumn('column2')">Renomear</button>
-                    <button onclick="deleteColumn('column2')">X</button>
+                    <button onclick="renameColumn('doingColumn')">Renomear</button>
+                    <button onclick="deleteColumn('doingColumn')">X</button>
                 </div>
                 <!-- Tarefas aqui -->
             </div>
-            <div class="kanban-column" id="column3">
+            <div class="kanban-column" id="doneColumn">
                 <div class="column-header">
                     <span contenteditable="true">Concluído</span>
-                    <button onclick="renameColumn('column3')">Renomear</button>
-                    <button onclick="deleteColumn('column3')">X</button>
+                    <button onclick="renameColumn('doneColumn')">Renomear</button>
+                    <button onclick="deleteColumn('doneColumn')">X</button>
                 </div>
                 <!-- Tarefas aqui -->
             </div>
