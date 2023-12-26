@@ -12,13 +12,14 @@ header {
     color: white;
     text-align: center;
     padding: 1rem 0;
+    height: 100px;
 }
 
 .sidebar {
     background-color: #333;
     color: white;
     padding: 1rem;
-    width: 200px;
+    width: 100px;
     height: calc(100vh - 2rem);
 }
 
@@ -58,8 +59,8 @@ header {
 }
 
 .add-column-btn {
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
