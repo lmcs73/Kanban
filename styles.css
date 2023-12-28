@@ -14,6 +14,8 @@ header, footer {
 }
 
 header {
+    z-index: 2;
+    position: relative; /* Adjust position if necessary */
     background-color: #4CAF50;
     color: white;
     text-align: center;
@@ -60,7 +62,9 @@ footer {
     padding: 1rem;
     background-color: #f9f9f9;
     border-left: 1px solid #ccc; /* Vertical line between columns */
+    min-height: 100px; /* Minimum height for columns */
 }
+
 
 .column-header {
     margin-bottom: 1rem;
@@ -68,10 +72,12 @@ footer {
 }
 
 .kanban-row {
-    padding: 10px; /* Taller rows */
+    min-height: 500px; /* Minimum height for rows */
+    padding: 10px;
     border-bottom: 1px solid #ddd;
     margin-bottom: 5px;
 }
+
 
 .add-column-btn {
     height: 15px;
