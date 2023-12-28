@@ -1,38 +1,3 @@
-function initDragAndDrop() {
-    let columns = document.querySelectorAll('.kanban-column');
-    columns.forEach(column => {
-        column.draggable = true;
-        column.addEventListener('dragstart', handleDragStart);
-        column.addEventListener('dragover', handleDragOver);
-        column.addEventListener('drop', handleDrop);
-    });
-}
-
-function handleDragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.id);
-}
-
-function handleDragOver(e) {
-    e.preventDefault(); // Necessary to allow dropping
-}
-
-function handleDrop(e) {
-    e.preventDefault();
-    let draggedId = e.dataTransfer.getData('text/plain');
-    let droppedOn = e.target;
-    let draggedElement = document.getElementById(draggedId);
-
-    if (droppedOn.className.includes('kanban-column')) {
-        swapColumns(draggedElement, droppedOn);
-    }
-}
-
-function swapColumns(dragged, target) {
-    let kanbanBoard = document.getElementById('kanbanBoard');
-    kanbanBoard.insertBefore(dragged, target.nextSibling);
-    moveAddButtonToEnd();
-}
-
 function moveAddButtonToEnd() {
     let kanbanBoard = document.getElementById('kanbanBoard');
     let addButton = document.querySelector('.add-column-btn');
@@ -50,6 +15,10 @@ function deleteColumn(columnId) {
 
 function addColumn() {
     let kanbanBoard = document.getElementById('kanbanBoard');
+    if (kanbanBoard.children.length >= 7) {
+        alert("Limite máximo de 7 colunas atingido.");
+        return;
+    }
     let newColumnId = `column${kanbanBoard.children.length}`;
     let newColumn = document.createElement('div');
     newColumn.className = 'kanban-column';
